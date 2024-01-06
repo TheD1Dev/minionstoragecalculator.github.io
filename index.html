@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hypixel Skyblock Minion Storage Calculator</title>
+        <link rel="stylesheet" href="style.css">
+
+        <style>
+          table {
+            width: 100%;
+            margin: left;
+            border-collapse: collapse;
+            height: 20%;
+          }
+      
+          table, th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+          }
+        </style>
+    </head>
+
+    <body>
+
+        <h1 class="header">Hypixel Skyblock Minion Storage Calculator</h1>
+        <h3 class="header" id="madeBy"><a href="https://www.youtube.com/channel/UCxaisixfRLJhOrrFn_4XnJA">Calculator made by: D1Dev</a></h3>
+
+      
+        <div class="selectors">
+          <table>
+            <tr>
+              <td><label for="MinionType">Choose a Minion Type:</label></td>
+              <td>
+                <select name="MinionType" id="minionTypeDropdown">
+                  <option value="Mining">Mining</option>
+                  <option value="Foraging">Foraging</option>
+                  <option value="Fishing">Fishing</option>
+                  <option value="Farming">Farming</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="MinionTier">Choose a Tier:</label></td>
+              <td>
+                <select name="MinionTier" id="minionTierDropdown">
+                  <option value="I">I</option>
+                  <option value="II">II</option>
+                  <option value="IV">IV</option>
+                  <option value="VI">VI</option>
+                  <option value="VIII">VIII</option>
+                  <option value="X">X</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="minionStorageDropdown">Choose a Minion Storage:</label></td>
+              <td>
+                <select name="minionStorageDropdown" id="minionStorageDropdown">
+                  <option value="none">None</option>
+                  <option value="SmallMinionChest">Small Minion Chest</option>
+                  <option value="MediumMinionStorage">Medium Minion Storage</option>
+                  <option value="LargeMinionStorage">Large Minion Storage</option>
+                  <option value="XLargeMinionStorage">X-Large Minion Storage</option>
+                  <option value="XXLargeMinionStorage">XX-Large Minion Storage</option>
+                </select>
+              </td>
+            </tr>
+          </table>
+              <div>
+          <button onclick="calculateInventory()" id="calculateinventorybutton">Calculate Inventory</button>
+        </div>
+          <h2 id="result">Minion Inventory: </h2>
+        
+          <script>
+            function calculateInventory() {
+              // Get the selected Minion Type, Tier, and storage type
+              var selectedMinionType = document.getElementById("minionTypeDropdown").value;
+              var selectedMinionTier = document.getElementById("minionTierDropdown").value;
+              var selectedMinionStorage = document.getElementById("minionStorageDropdown").value;
+        
+              // Convert Roman numeral to Arabic numeral for calculations
+              var arabicNumeral;
+        
+              switch (selectedMinionTier) {
+                case 'I':
+                  arabicNumeral = 1;
+                  break;
+                case 'II':
+                  arabicNumeral = 2;
+                  break;
+                case 'IV':
+                  arabicNumeral = 4;
+                  break;
+                case 'VI':
+                  arabicNumeral = 6;
+                  break;
+                case 'VIII':
+                  arabicNumeral = 8;
+                  break;
+                case 'X':
+                  arabicNumeral = 10;
+                  break;
+                default:
+                  arabicNumeral = 1; // Default to Tier I if not recognized
+              }
+        
+              // Calculate inventory based on tier and selected storage type
+              var inventoryAmount = 64; // Default for Tier 1
+        
+              if (arabicNumeral === 2) {
+                inventoryAmount = 192;
+              } else if (arabicNumeral === 4) {
+                inventoryAmount = 384;
+              } else if (arabicNumeral === 6) {
+                inventoryAmount = 576;
+              } else if (arabicNumeral === 8) {
+                inventoryAmount = 768;
+              } else if (arabicNumeral === 10) {
+                inventoryAmount = 960;
+              }
+        
+              // Add additional slots based on the selected storage type
+              switch (selectedMinionStorage) {
+                case 'SmallMinionChest':
+                  inventoryAmount += 192;
+                  break;
+                case 'MediumMinionStorage':
+                  inventoryAmount += 576;
+                  break;
+                case 'LargeMinionStorage':
+                  inventoryAmount += 960;
+                  break;
+                case 'XLargeMinionStorage':
+                  inventoryAmount += 1344;
+                  break;
+                case 'XXLargeMinionStorage':
+                  inventoryAmount += 1728;
+                  break;
+                default:
+                  break;
+              }
+        
+        
+              // Update the result in the <h1> element
+              document.getElementById("result").innerText = "Minion Inventory: Tier " + selectedMinionTier + " " + selectedMinionType + " Minion - " + inventoryAmount + " slots";
+            }
+          </script>
+          
+        
+          <h2 class="version">Version 0.1.0 - Coded, Relased with calculator and minion compatable list.</h2>
+         
+  </div>
+  <h1>Note: This is still in development and is not perfect.</h1>
+  <h1>Doesnt Matter if you have a compactor/supercompactor.</h1>
+  <h3><a href="workingMinions.html">click for list of compatable minions</a></h3>
+  <h2 class="knownIssues">Known Issues: Minion type does nothing/No specific minion.</h2>
+    </body>
+</html>
