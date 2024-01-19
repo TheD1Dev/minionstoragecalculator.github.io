@@ -45,10 +45,15 @@
                 <select name="MinionTier" id="minionTierDropdown">
                   <option value="I">I</option>
                   <option value="II">II</option>
+                  <option value="III">III</option>
                   <option value="IV">IV</option>
+                  <option value="V">V</option>
                   <option value="VI">VI</option>
+                  <option value="VII">VII</option>
                   <option value="VIII">VIII</option>
+                  <option value="IX">IX</option>
                   <option value="X">X</option>
+                  <option value="XI">XI</option>
                 </select>
               </td>
             </tr>
@@ -88,17 +93,32 @@
                 case 'II':
                   arabicNumeral = 2;
                   break;
+                  case 'III':
+                  arabicNumeral = 3;
+                  break;
                 case 'IV':
                   arabicNumeral = 4;
+                  break;
+                  case 'V':
+                  arabicNumeral = 5;
                   break;
                 case 'VI':
                   arabicNumeral = 6;
                   break;
+                  case 'VII':
+                  arabicNumeral = 7;
+                  break;
                 case 'VIII':
-                  arabicNumeral = 8;
+                  arabicNumeral = 8;  
+                  break;
+                  case 'IX':
+                  arabicNumeral = 9;
                   break;
                 case 'X':
                   arabicNumeral = 10;
+                  break;
+                  case 'XI':
+                  arabicNumeral = 11;
                   break;
                 default:
                   arabicNumeral = 1; // Default to Tier I if not recognized
@@ -109,13 +129,23 @@
         
               if (arabicNumeral === 2) {
                 inventoryAmount = 192;
+              } else if (arabicNumeral === 3) {
+                inventoryAmount = 192;
               } else if (arabicNumeral === 4) {
+                inventoryAmount = 384;
+              } else if (arabicNumeral === 5) {
                 inventoryAmount = 384;
               } else if (arabicNumeral === 6) {
                 inventoryAmount = 576;
+              } else if (arabicNumeral === 7) {
+                inventoryAmount = 576;
               } else if (arabicNumeral === 8) {
                 inventoryAmount = 768;
+              } else if (arabicNumeral === 9) {
+                inventoryAmount = 768;
               } else if (arabicNumeral === 10) {
+                inventoryAmount = 960;
+              }else if (arabicNumeral === 11) {
                 inventoryAmount = 960;
               }
         
@@ -142,7 +172,7 @@
         
         
               // Update the result in the <h1> element
-              document.getElementById("result").innerText = "Minion Inventory: Tier " + selectedMinionTier + " " + selectedMinionType + " Minion - " + inventoryAmount + " slots";
+              document.getElementById("result").innerText = "Minion Inventory: Tier " + selectedMinionTier + " " + selectedMinionType + " Minion - " + inventoryAmount + " items";
             }
           </script>
           
